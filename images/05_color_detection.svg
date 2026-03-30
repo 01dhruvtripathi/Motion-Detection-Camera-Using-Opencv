@@ -1,0 +1,115 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0805"/>
+      <stop offset="100%" style="stop-color:#12100a"/>
+    </linearGradient>
+    <linearGradient id="hsvBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff0000"/>
+      <stop offset="16.6%" style="stop-color:#ffff00"/>
+      <stop offset="33.3%" style="stop-color:#00ff00"/>
+      <stop offset="50%" style="stop-color:#00ffff"/>
+      <stop offset="66.6%" style="stop-color:#0000ff"/>
+      <stop offset="83.3%" style="stop-color:#ff00ff"/>
+      <stop offset="100%" style="stop-color:#ff0000"/>
+    </linearGradient>
+    <filter id="glow5">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="300" fill="url(#bg5)"/>
+  <rect x="0" y="0" width="900" height="3" fill="#ff9900"/>
+  <text x="450" y="25" text-anchor="middle" font-size="13" fill="#ff9900" letter-spacing="4" filter="url(#glow5)">BLUE OBJECT DETECTION — HSV COLOR MASKING</text>
+
+  <!-- HSV Hue wheel spectrum bar -->
+  <rect x="50" y="42" width="800" height="24" rx="4" fill="url(#hsvBar)"/>
+  <text x="50" y="38" font-size="9" fill="#888">Hue (0°)</text>
+  <text x="430" y="38" text-anchor="middle" font-size="9" fill="#888">Hue spectrum (0–360°)</text>
+  <text x="850" y="38" text-anchor="end" font-size="9" fill="#888">(360°)</text>
+
+  <!-- Highlight blue range H=100-140 on bar -->
+  <!-- H=100 maps to 100/360 * 800 + 50 = 272 px; H=140 maps to 140/360*800+50 = 361 px -->
+  <rect x="272" y="42" width="89" height="24" rx="2" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+  <line x1="272" y1="66" x2="272" y2="78" stroke="#fff" stroke-width="1.5"/>
+  <line x1="361" y1="66" x2="361" y2="78" stroke="#fff" stroke-width="1.5"/>
+  <text x="316" y="86" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">Blue: H 100–140</text>
+
+  <!-- Panel 1: Original BGR frame -->
+  <rect x="30" y="100" width="200" height="160" rx="7" fill="#0a0c10" stroke="#444" stroke-width="1.5"/>
+  <text x="130" y="118" text-anchor="middle" font-size="10" fill="#aaa" letter-spacing="2">BGR FRAME</text>
+  <rect x="44" y="124" width="172" height="126" rx="3" fill="#0f1218"/>
+  <!-- Scene with blue object -->
+  <rect x="55" y="155" width="148" height="90" rx="2" fill="#181820"/><!-- bg -->
+  <!-- Blue bottle / object -->
+  <rect x="100" y="145" width="35" height="80" rx="5" fill="#1a4acc"/>
+  <rect x="108" y="138" width="19" height="14" rx="3" fill="#2255ee"/>
+  <!-- Red chair / object -->
+  <rect x="148" y="170" width="36" height="55" rx="3" fill="#8b1a1a"/>
+  <!-- White box -->
+  <rect x="58" y="180" width="30" height="35" rx="2" fill="#cccccc"/>
+  <!-- Blue bounding box -->
+  <rect x="96" y="136" width="44" height="94" rx="3" fill="none" stroke="#4488ff" stroke-width="2.5" filter="url(#glow5)"/>
+  <text x="118" y="131" text-anchor="middle" font-size="8" fill="#4488ff">BLUE OBJ</text>
+
+  <!-- Arrow -->
+  <text x="242" y="183" font-size="22" fill="#ff9900" filter="url(#glow5)">→</text>
+
+  <!-- Panel 2: HSV frame -->
+  <rect x="260" y="100" width="200" height="160" rx="7" fill="#0a0c10" stroke="#665500" stroke-width="1.5"/>
+  <text x="360" y="118" text-anchor="middle" font-size="10" fill="#ff9900" letter-spacing="2">HSV CONVERTED</text>
+  <rect x="274" y="124" width="172" height="126" rx="3" fill="#0d0c10"/>
+  <!-- Hue shifted visualization — blues become identifiable -->
+  <rect x="285" y="155" width="148" height="90" rx="2" fill="#1a1015"/>
+  <!-- Blue object appears bright in blue hue channel -->
+  <rect x="330" y="145" width="35" height="80" rx="5" fill="#0044cc" opacity="0.9"/>
+  <rect x="338" y="138" width="19" height="14" rx="3" fill="#0055ff" opacity="0.9"/>
+  <!-- Other objects muted differently -->
+  <rect x="378" y="170" width="36" height="55" rx="3" fill="#3d0a0a" opacity="0.6"/>
+  <rect x="288" y="180" width="30" height="35" rx="2" fill="#555560" opacity="0.4"/>
+  <text x="360" y="257" text-anchor="middle" font-size="9" fill="#cc7700">cvtColor(BGR→HSV)</text>
+
+  <!-- Arrow -->
+  <text x="472" y="183" font-size="22" fill="#ff9900" filter="url(#glow5)">→</text>
+
+  <!-- Panel 3: Binary Mask -->
+  <rect x="490" y="100" width="200" height="160" rx="7" fill="#050504" stroke="#443300" stroke-width="1.5"/>
+  <text x="590" y="118" text-anchor="middle" font-size="10" fill="#ff9900" letter-spacing="2">BINARY MASK</text>
+  <rect x="504" y="124" width="172" height="126" rx="3" fill="#000"/>
+  <!-- Only blue region shows white -->
+  <rect x="555" y="145" width="35" height="80" rx="5" fill="#fff"/>
+  <rect x="563" y="138" width="19" height="14" rx="3" fill="#fff"/>
+  <!-- Tiny noise spots -->
+  <circle cx="522" cy="190" r="2" fill="#fff" opacity="0.3"/>
+  <circle cx="650" cy="210" r="1.5" fill="#fff" opacity="0.2"/>
+  <text x="590" y="257" text-anchor="middle" font-size="9" fill="#cc7700">inRange(lower, upper)</text>
+
+  <!-- Arrow -->
+  <text x="702" y="183" font-size="22" fill="#ff9900" filter="url(#glow5)">→</text>
+
+  <!-- Panel 4: Output with bbox -->
+  <rect x="720" y="100" width="160" height="160" rx="7" fill="#08090a" stroke="#ff9900" stroke-width="1.5"/>
+  <text x="800" y="118" text-anchor="middle" font-size="10" fill="#ff9900" letter-spacing="2">DETECTION</text>
+  <rect x="734" y="124" width="132" height="126" rx="3" fill="#0f1218"/>
+  <rect x="745" y="155" width="108" height="90" rx="2" fill="#181820"/>
+  <rect x="770" y="145" width="28" height="62" rx="5" fill="#1a4acc"/>
+  <rect x="777" y="138" width="14" height="11" rx="3" fill="#2255ee"/>
+  <!-- Bounding box orange highlight -->
+  <rect x="766" y="135" width="36" height="75" rx="3" fill="none" stroke="#ff9900" stroke-width="2.5" filter="url(#glow5)"/>
+  <rect x="783" y="128" width="20" height="11" rx="2" fill="#ff9900"/>
+  <text x="793" y="137" text-anchor="middle" font-size="7" fill="#000" font-weight="bold">BLUE</text>
+  <text x="800" y="246" text-anchor="middle" font-size="9" fill="#ff9900">🔵 area = 512px²</text>
+
+  <!-- Bottom params box -->
+  <rect x="30" y="268" width="840" height="26" rx="4" fill="#12100a" opacity="0.8"/>
+  <text x="60" y="284" font-size="9" fill="#ff9900">lower_blue</text>
+  <text x="120" y="284" font-size="9" fill="#fff"> = [100, 150, 0]</text>
+  <text x="250" y="284" font-size="9" fill="#aaa">|</text>
+  <text x="265" y="284" font-size="9" fill="#ff9900">upper_blue</text>
+  <text x="325" y="284" font-size="9" fill="#fff"> = [140, 255, 255]</text>
+  <text x="460" y="284" font-size="9" fill="#aaa">|</text>
+  <text x="475" y="284" font-size="9" fill="#aaa">Hue: 100–140  Sat: 150–255  Val: 0–255</text>
+  <text x="720" y="284" font-size="9" fill="#aaa">|</text>
+  <text x="735" y="284" font-size="9" fill="#ff9900">Min Area: 300px²</text>
+</svg>

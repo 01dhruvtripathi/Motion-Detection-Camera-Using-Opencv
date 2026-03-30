@@ -1,0 +1,57 @@
+<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1e"/>
+      <stop offset="50%" style="stop-color:#0d1f3c"/>
+      <stop offset="100%" style="stop-color:#0a0f1e"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c6ff"/>
+      <stop offset="100%" style="stop-color:#0072ff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a2a4a" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="200" fill="url(#bgGrad)"/>
+  <rect width="900" height="200" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Scan line animation effect strips -->
+  <rect x="0" y="0" width="3" height="200" fill="url(#accentGrad)" opacity="0.6"/>
+  <rect x="897" y="0" width="3" height="200" fill="url(#accentGrad)" opacity="0.6"/>
+  <rect x="0" y="0" width="900" height="2" fill="url(#accentGrad)" opacity="0.6"/>
+  <rect x="0" y="198" width="900" height="2" fill="url(#accentGrad)" opacity="0.6"/>
+
+  <!-- Camera icon -->
+  <g transform="translate(68,100)" filter="url(#glow)">
+    <rect x="-30" y="-22" width="60" height="44" rx="6" fill="none" stroke="#00c6ff" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="13" fill="none" stroke="#00c6ff" stroke-width="2"/>
+    <circle cx="0" cy="0" r="7" fill="#00c6ff" opacity="0.5"/>
+    <rect x="-12" y="-30" width="12" height="8" rx="2" fill="#00c6ff" opacity="0.8"/>
+    <polygon points="35,-10 50,-18 50,18 35,10" fill="#00c6ff" opacity="0.6"/>
+  </g>
+
+  <!-- Radar pulse rings -->
+  <circle cx="68" cy="100" r="45" fill="none" stroke="#00c6ff" stroke-width="0.8" opacity="0.15"/>
+  <circle cx="68" cy="100" r="65" fill="none" stroke="#00c6ff" stroke-width="0.5" opacity="0.08"/>
+
+  <!-- Title text -->
+  <text x="145" y="85" font-size="34" font-weight="bold" fill="#ffffff" letter-spacing="2" filter="url(#glow)">MOTION DETECTION</text>
+  <text x="145" y="122" font-size="34" font-weight="bold" fill="url(#accentGrad)" letter-spacing="2" filter="url(#glow)">CAMERA SYSTEM</text>
+  <text x="147" y="155" font-size="13" fill="#7ab8e8" letter-spacing="3">OPENCV  ·  PYTHON  ·  REAL-TIME  ·  AI-POWERED</text>
+
+  <!-- Status badge -->
+  <rect x="700" y="78" width="160" height="30" rx="4" fill="#00c6ff" opacity="0.12" stroke="#00c6ff" stroke-width="1"/>
+  <circle cx="718" cy="93" r="5" fill="#00ff88"/>
+  <text x="730" y="98" font-size="12" fill="#00ff88" letter-spacing="1">● LIVE DETECTION</text>
+
+  <!-- Corner decorations -->
+  <polyline points="20,20 20,8 32,8" fill="none" stroke="#00c6ff" stroke-width="1.5" opacity="0.5"/>
+  <polyline points="880,20 880,8 868,8" fill="none" stroke="#00c6ff" stroke-width="1.5" opacity="0.5"/>
+  <polyline points="20,180 20,192 32,192" fill="none" stroke="#00c6ff" stroke-width="1.5" opacity="0.5"/>
+  <polyline points="880,180 880,192 868,192" fill="none" stroke="#00c6ff" stroke-width="1.5" opacity="0.5"/>
+</svg>

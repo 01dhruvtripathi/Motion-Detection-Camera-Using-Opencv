@@ -1,0 +1,74 @@
+<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080a0f"/>
+      <stop offset="100%" style="stop-color:#0d1018"/>
+    </linearGradient>
+    <filter id="glow7">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="200" fill="url(#bg7)"/>
+  <text x="450" y="24" text-anchor="middle" font-size="12" fill="#666" letter-spacing="5">TECHNOLOGY STACK</text>
+
+  <!-- Python Card -->
+  <rect x="40" y="38" width="180" height="135" rx="10" fill="#0d1525" stroke="#3776AB" stroke-width="2"/>
+  <rect x="40" y="38" width="180" height="5" rx="3" fill="#3776AB"/>
+  <!-- Python logo simplified -->
+  <g transform="translate(130,90)">
+    <path d="M-22,-20 Q-22,-35 -8,-35 L8,-35 Q22,-35 22,-20 L22,0 Q22,15 8,15 L-8,15 Q-22,15 -22,0 Z" fill="#3776AB"/>
+    <path d="M-22,0 Q-22,-8 -8,-8 L8,-8 Q22,-8 22,-5 L22,20 Q22,35 8,35 L-8,35 Q-22,35 -22,20 Z" fill="#FFD43B"/>
+    <circle cx="-8" cy="-20" r="3.5" fill="#FFD43B"/>
+    <circle cx="8" cy="20" r="3.5" fill="#3776AB"/>
+  </g>
+  <text x="130" y="152" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">Python 3.8+</text>
+  <text x="130" y="167" text-anchor="middle" font-size="9" fill="#7ab8e8">Core Language</text>
+
+  <!-- OpenCV Card -->
+  <rect x="250" y="38" width="180" height="135" rx="10" fill="#0d1520" stroke="#5C3EE8" stroke-width="2"/>
+  <rect x="250" y="38" width="180" height="5" rx="3" fill="#5C3EE8"/>
+  <!-- OpenCV logo - concentric shapes -->
+  <g transform="translate(340,90)" filter="url(#glow7)">
+    <circle cx="-12" cy="0" r="18" fill="#5C3EE8" opacity="0.8"/>
+    <circle cx="12" cy="0" r="18" fill="#FF5722" opacity="0.8"/>
+    <circle cx="0" cy="-10" r="18" fill="#4CAF50" opacity="0.8"/>
+    <circle cx="-12" cy="0" r="8" fill="#5C3EE8"/>
+    <circle cx="12" cy="0" r="8" fill="#FF5722"/>
+    <circle cx="0" cy="-10" r="8" fill="#4CAF50"/>
+    <circle cx="0" cy="-3" r="5" fill="#ffffff" opacity="0.9"/>
+  </g>
+  <text x="340" y="152" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">OpenCV 4.x</text>
+  <text x="340" y="167" text-anchor="middle" font-size="9" fill="#9988ff">Computer Vision</text>
+
+  <!-- NumPy Card -->
+  <rect x="460" y="38" width="180" height="135" rx="10" fill="#050e18" stroke="#013243" stroke-width="2"/>
+  <rect x="460" y="38" width="180" height="5" rx="3" fill="#4DABCF"/>
+  <!-- NumPy logo - simplified array grid -->
+  <g transform="translate(550,90)">
+    <rect x="-28" y="-24" width="56" height="48" rx="3" fill="#013243"/>
+    <text x="0" y="-10" text-anchor="middle" font-size="9" fill="#4DABCF">[[ 100 150   0]</text>
+    <text x="0" y="3" text-anchor="middle" font-size="9" fill="#ffffff"> [140 255 255]]</text>
+    <text x="0" y="16" text-anchor="middle" font-size="8" fill="#4DABCF">np.array</text>
+  </g>
+  <text x="550" y="152" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">NumPy</text>
+  <text x="550" y="167" text-anchor="middle" font-size="9" fill="#4DABCF">Array Operations</text>
+
+  <!-- Pygame Card -->
+  <rect x="670" y="38" width="180" height="135" rx="10" fill="#100d05" stroke="#E8A020" stroke-width="2"/>
+  <rect x="670" y="38" width="180" height="5" rx="3" fill="#E8A020"/>
+  <!-- Pygame: speaker icon -->
+  <g transform="translate(760,90)">
+    <polygon points="-18,-14 -6,-14 8,-26 8,26 -6,14 -18,14" fill="#E8A020" opacity="0.9"/>
+    <path d="M 14,-12 Q 28,0 14,12" fill="none" stroke="#E8A020" stroke-width="3"/>
+    <path d="M 20,-20 Q 38,0 20,20" fill="none" stroke="#E8A020" stroke-width="2" opacity="0.5"/>
+  </g>
+  <text x="760" y="152" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">Pygame 2.x</text>
+  <text x="760" y="167" text-anchor="middle" font-size="9" fill="#E8A020">Sound / Alarm</text>
+
+  <!-- connecting dots between cards -->
+  <line x1="220" y1="106" x2="250" y2="106" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="430" y1="106" x2="460" y2="106" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="640" y1="106" x2="670" y2="106" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+</svg>

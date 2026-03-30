@@ -1,0 +1,112 @@
+<svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0505"/>
+      <stop offset="100%" style="stop-color:#0d0303"/>
+    </linearGradient>
+    <linearGradient id="threadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#440000"/>
+      <stop offset="100%" style="stop-color:#220000"/>
+    </linearGradient>
+    <filter id="glow6">
+      <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="redGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ff4444"/>
+    </marker>
+    <marker id="arrowWhite" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#aaaaaa"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="280" fill="url(#bg6)"/>
+  <rect x="0" y="0" width="900" height="3" fill="#ff4444"/>
+  <text x="450" y="25" text-anchor="middle" font-size="13" fill="#ff6666" letter-spacing="4" filter="url(#glow6)">ALARM SYSTEM — MULTI-THREADED ARCHITECTURE</text>
+
+  <!-- MAIN THREAD box -->
+  <rect x="30" y="50" width="370" height="200" rx="8" fill="#0d0505" stroke="#884444" stroke-width="1.5"/>
+  <rect x="30" y="50" width="370" height="28" rx="8" fill="#331010"/>
+  <text x="215" y="68" text-anchor="middle" font-size="11" fill="#ff9999" letter-spacing="3">MAIN THREAD</text>
+
+  <!-- Detection logic flow -->
+  <rect x="50" y="90" width="145" height="38" rx="5" fill="#1a0808" stroke="#553333" stroke-width="1"/>
+  <text x="123" y="108" text-anchor="middle" font-size="10" fill="#ffaaaa">Motion Detected?</text>
+  <text x="123" y="122" text-anchor="middle" font-size="9" fill="#aa6666">moving_detected</text>
+  <line x1="195" y1="109" x2="225" y2="109" stroke="#ff4444" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+
+  <rect x="225" y="90" width="145" height="38" rx="5" fill="#1a0808" stroke="#553333" stroke-width="1"/>
+  <text x="298" y="108" text-anchor="middle" font-size="10" fill="#ffaaaa">Blue Detected?</text>
+  <text x="298" y="122" text-anchor="middle" font-size="9" fill="#aa6666">blue_detected</text>
+
+  <!-- OR logic -->
+  <line x1="123" y1="128" x2="123" y2="148" stroke="#ff4444" stroke-width="1.5"/>
+  <line x1="298" y1="128" x2="298" y2="148" stroke="#ff4444" stroke-width="1.5"/>
+  <line x1="123" y1="148" x2="298" y2="148" stroke="#ff4444" stroke-width="1.5"/>
+  <line x1="210" y1="148" x2="210" y2="163" stroke="#ff4444" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+
+  <!-- Flag box -->
+  <rect x="148" y="163" width="124" height="38" rx="5" fill="#2a0808" stroke="#ff4444" stroke-width="2"/>
+  <text x="210" y="181" text-anchor="middle" font-size="10" fill="#ff6666" font-weight="bold">alarm_triggered</text>
+  <text x="210" y="194" text-anchor="middle" font-size="9" fill="#ff4444">= True / False</text>
+
+  <!-- shared flag indicator -->
+  <rect x="148" y="208" width="124" height="30" rx="5" fill="#1a0505" stroke="#663333" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="210" y="225" text-anchor="middle" font-size="9" fill="#cc8888">🔗 shared global flag</text>
+
+  <!-- Arrow to alarm thread -->
+  <line x1="400" y1="163" x2="458" y2="163" stroke="#ff4444" stroke-width="2" marker-end="url(#arrowRed)" stroke-dasharray="6,3"/>
+  <text x="430" y="155" text-anchor="middle" font-size="9" fill="#ff8888">reads</text>
+
+  <!-- ALARM THREAD box -->
+  <rect x="460" y="50" width="260" height="200" rx="8" fill="#150303" stroke="#ff4444" stroke-width="2"/>
+  <rect x="460" y="50" width="260" height="28" rx="8" fill="#440808"/>
+  <text x="590" y="68" text-anchor="middle" font-size="11" fill="#ff6666" letter-spacing="3">ALARM THREAD</text>
+  <text x="590" y="83" text-anchor="middle" font-size="8" fill="#cc4444">daemon=True</text>
+
+  <!-- Thread loop -->
+  <rect x="480" y="95" width="220" height="30" rx="5" fill="#220505" stroke="#993333" stroke-width="1"/>
+  <text x="590" y="113" text-anchor="middle" font-size="10" fill="#ffaaaa">while True: (infinite loop)</text>
+
+  <!-- If triggered -->
+  <line x1="590" y1="125" x2="590" y2="140" stroke="#ff4444" stroke-width="1.5"/>
+  <rect x="480" y="140" width="220" height="30" rx="5" fill="#2a0505" stroke="#ff4444" stroke-width="1.5"/>
+  <text x="590" y="158" text-anchor="middle" font-size="10" fill="#ff8888">if alarm_triggered:</text>
+
+  <!-- Play sound -->
+  <line x1="590" y1="170" x2="590" y2="183" stroke="#ff4444" stroke-width="1.5"/>
+  <rect x="480" y="183" width="220" height="28" rx="5" fill="#1a0303" stroke="#993333" stroke-width="1"/>
+  <text x="590" y="200" text-anchor="middle" font-size="10" fill="#ffcccc">alarm_sound.play()</text>
+
+  <!-- else stop -->
+  <line x1="480" y1="197" x2="462" y2="197" stroke="#884444" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="462" y1="197" x2="462" y2="220" stroke="#884444" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="480" y="215" width="220" height="28" rx="5" fill="#110202" stroke="#553333" stroke-width="1"/>
+  <text x="590" y="232" text-anchor="middle" font-size="10" fill="#cc7777">else: alarm_sound.stop()</text>
+
+  <!-- Pygame mixer box -->
+  <rect x="760" y="90" width="120" height="120" rx="8" fill="#110505" stroke="#cc3333" stroke-width="2"/>
+  <text x="820" y="112" text-anchor="middle" font-size="10" fill="#ff6666" letter-spacing="1">🔊 PYGAME</text>
+  <text x="820" y="128" text-anchor="middle" font-size="10" fill="#ff8888">MIXER</text>
+  <line x1="820" y1="133" x2="820" y2="143" stroke="#cc4444" stroke-width="1"/>
+  <rect x="778" y="143" width="84" height="20" rx="3" fill="#220808"/>
+  <text x="820" y="157" text-anchor="middle" font-size="9" fill="#ffaaaa">alarm.mp3.wav</text>
+  <rect x="778" y="168" width="84" height="18" rx="3" fill="#330505"/>
+  <text x="820" y="180" text-anchor="middle" font-size="8" fill="#cc8888">delay: 1000ms</text>
+  <rect x="778" y="191" width="84" height="16" rx="3" fill="#1a0303"/>
+  <text x="820" y="202" text-anchor="middle" font-size="8" fill="#aa5555">mixer.init()</text>
+
+  <line x1="720" y1="155" x2="758" y2="155" stroke="#cc3333" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+
+  <!-- bottom bar -->
+  <rect x="30" y="257" width="850" height="18" rx="3" fill="#110303" opacity="0.8"/>
+  <text x="80" y="269" font-size="9" fill="#ff6666">● Non-blocking</text>
+  <text x="180" y="269" font-size="9" fill="#884444">|</text>
+  <text x="195" y="269" font-size="9" fill="#cc8888">Daemon thread exits automatically when main process ends</text>
+  <text x="600" y="269" font-size="9" fill="#884444">|</text>
+  <text x="615" y="269" font-size="9" fill="#cc8888">Sound loops while flag is True</text>
+</svg>

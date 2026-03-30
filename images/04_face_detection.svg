@@ -1,0 +1,110 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="'Courier New', monospace">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0d1f"/>
+      <stop offset="100%" style="stop-color:#080b18"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="300" fill="url(#bg4)"/>
+  <rect x="0" y="0" width="900" height="3" fill="#4488ff"/>
+
+  <text x="450" y="25" text-anchor="middle" font-size="13" fill="#4488ff" letter-spacing="4" filter="url(#glow4)">FACE &amp; EYE DETECTION — HAAR CASCADE CLASSIFIER</text>
+
+  <!-- Camera Frame -->
+  <rect x="30" y="45" width="420" height="220" rx="8" fill="#080c1a" stroke="#2255cc" stroke-width="1.5"/>
+  <text x="240" y="64" text-anchor="middle" font-size="10" fill="#4488ff" letter-spacing="2">LIVE CAMERA FRAME</text>
+
+  <!-- Video background -->
+  <rect x="45" y="70" width="390" height="185" rx="4" fill="#0a0e1e"/>
+
+  <!-- Background fill - simulated room -->
+  <rect x="45" y="195" width="390" height="60" fill="#0d1225" rx="2"/><!-- floor -->
+  <rect x="45" y="70" width="390" height="30" fill="#0c1020"/><!-- ceiling -->
+
+  <!-- Person 1 -->
+  <!-- Body -->
+  <rect x="100" y="150" width="50" height="100" rx="5" fill="#1a2244"/>
+  <!-- Head with face-->
+  <circle cx="125" cy="135" r="32" fill="#c8a882"/>
+  <!-- Eyes on face -->
+  <ellipse cx="113" cy="128" rx="8" ry="5" fill="#fff"/>
+  <circle cx="113" cy="128" r="3.5" fill="#1a1a2a"/>
+  <ellipse cx="137" cy="128" rx="8" ry="5" fill="#fff"/>
+  <circle cx="137" cy="128" r="3.5" fill="#1a1a2a"/>
+  <!-- Nose -->
+  <ellipse cx="125" cy="137" rx="4" ry="3" fill="#b89060" opacity="0.7"/>
+  <!-- Mouth -->
+  <path d="M 114 146 Q 125 152 136 146" fill="none" stroke="#7a5540" stroke-width="1.5"/>
+
+  <!-- FACE bounding box — BLUE -->
+  <rect x="93" y="103" width="64" height="64" rx="3" fill="none" stroke="#4488ff" stroke-width="2.5" filter="url(#glow4)"/>
+  <rect x="93" y="95" width="52" height="13" rx="2" fill="#4488ff"/>
+  <text x="119" y="105" text-anchor="middle" font-size="9" fill="#fff" font-weight="bold">FACE</text>
+
+  <!-- LEFT EYE bounding box — GREEN -->
+  <rect x="103" y="121" width="20" height="14" rx="2" fill="none" stroke="#00ff88" stroke-width="1.8" filter="url(#glow4)"/>
+  <!-- RIGHT EYE bounding box — GREEN -->
+  <rect x="127" y="121" width="20" height="14" rx="2" fill="none" stroke="#00ff88" stroke-width="1.8" filter="url(#glow4)"/>
+  <text x="125" y="175" text-anchor="middle" font-size="8" fill="#00ff88">👁 Eyes detected</text>
+
+  <!-- Person 2 (smaller, in background) -->
+  <circle cx="300" cy="120" r="22" fill="#d4b896"/>
+  <ellipse cx="292" cy="115" rx="5" ry="3.5" fill="#fff"/>
+  <circle cx="292" cy="115" r="2.5" fill="#1a1a2a"/>
+  <ellipse cx="308" cy="115" rx="5" ry="3.5" fill="#fff"/>
+  <circle cx="308" cy="115" r="2.5" fill="#1a1a2a"/>
+  <rect x="272" y="140" width="56" height="80" rx="4" fill="#222855"/>
+
+  <!-- FACE 2 bounding box -->
+  <rect x="276" y="96" width="48" height="48" rx="3" fill="none" stroke="#4488ff" stroke-width="2" filter="url(#glow4)"/>
+  <rect x="276" y="88" width="38" height="12" rx="2" fill="#4488ff"/>
+  <text x="295" y="97" text-anchor="middle" font-size="8" fill="#fff" font-weight="bold">FACE</text>
+  <!-- Eyes 2 -->
+  <rect x="285" y="111" width="14" height="9" rx="2" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+  <rect x="301" y="111" width="14" height="9" rx="2" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+
+  <!-- Right Panel: Code/Info -->
+  <rect x="480" y="45" width="390" height="220" rx="8" fill="#06091a" stroke="#1a2a5a" stroke-width="1.5"/>
+  <text x="675" y="64" text-anchor="middle" font-size="10" fill="#4488ff" letter-spacing="2">DETECTION PARAMETERS</text>
+
+  <!-- Code block -->
+  <rect x="495" y="72" width="360" height="110" rx="4" fill="#030610"/>
+  <text x="510" y="90" font-size="10" fill="#5577cc">face_cascade</text>
+  <text x="610" y="90" font-size="10" fill="#ffffff"> = CascadeClassifier(</text>
+  <text x="510" y="106" font-size="10" fill="#aaaacc">   haarcascade_frontalface</text>
+  <text x="510" y="122" font-size="10" fill="#5577cc">faces</text>
+  <text x="547" y="122" font-size="10" fill="#ffffff"> = detectMultiScale(</text>
+  <text x="510" y="138" font-size="10" fill="#aaaacc">   scaleFactor=</text>
+  <text x="605" y="138" font-size="10" fill="#ff9944">1.1</text>
+  <text x="630" y="138" font-size="10" fill="#aaaacc">, minNeighbors=</text>
+  <text x="735" y="138" font-size="10" fill="#ff9944">5</text>
+  <text x="510" y="154" font-size="10" fill="#aaaacc">   minSize=(</text>
+  <text x="563" y="154" font-size="10" fill="#ff9944">30</text>
+  <text x="578" y="154" font-size="10" fill="#aaaacc">, </text>
+  <text x="586" y="154" font-size="10" fill="#ff9944">30</text>
+  <text x="600" y="154" font-size="10" fill="#aaaacc">)</text>
+  <text x="510" y="170" font-size="10" fill="#aaaacc">   flags=</text>
+  <text x="551" y="170" font-size="10" fill="#ff9944">cv2.CASCADE_SCALE_IMAGE</text>
+
+  <!-- Legend -->
+  <rect x="495" y="192" width="360" height="60" rx="4" fill="#08102a"/>
+  <rect x="510" y="205" width="16" height="12" rx="2" fill="none" stroke="#4488ff" stroke-width="2"/>
+  <text x="534" y="215" font-size="10" fill="#aac0ff">Face bounding box  (BGR: 255, 0, 0)</text>
+  <rect x="510" y="226" width="16" height="12" rx="2" fill="none" stroke="#00ff88" stroke-width="2"/>
+  <text x="534" y="236" font-size="10" fill="#a0ffcc">Eye bounding box   (BGR: 0, 255, 0)</text>
+
+  <!-- bottom stats bar -->
+  <rect x="30" y="272" width="840" height="22" rx="4" fill="#08102a"/>
+  <text x="60" y="287" font-size="9" fill="#4488ff">● Haar Cascade XML</text>
+  <text x="185" y="287" font-size="9" fill="#aaa">|</text>
+  <text x="200" y="287" font-size="9" fill="#7ab8ff">Scale Factor: 1.1 × per octave</text>
+  <text x="390" y="287" font-size="9" fill="#aaa">|</text>
+  <text x="408" y="287" font-size="9" fill="#7ab8ff">Min Neighbors: 5 detections to confirm</text>
+  <text x="640" y="287" font-size="9" fill="#aaa">|</text>
+  <text x="655" y="287" font-size="9" fill="#7ab8ff">Min Size: 30×30 px</text>
+</svg>
